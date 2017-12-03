@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Crear Precios</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+	<h:outputLabel value="Codigo:" for="codigo" />
+ 	<h:inputText value="#{precioControlador.precios.codigo}" id="codigo" />
+ 	<h:message for="codigo"/>
+ 	
+ 	<h:outputLabel value="Precio x Hora:" for="precioxhora" />
+ 	<h:inputText value="#{precioControlador.precios.precioxhora}" id="precioxhora" />
+ 	<h:message for="precioxhora"/>
+ 	
+ 	<h:outputLabel value="Precio Total:" for="preciototal" />
+ 	<h:inputText value="#{precioControlador.precios.preciototal}" id="preciototal" />
+ 	<h:message for="preciototal"/>
+ 	
+	<h:commandButton action="#{precioControlador.guardar()}" value="Guardar" />
+
+</h:panelGrid>
+
+</h:form>
+
+
+</body> 
+</html>

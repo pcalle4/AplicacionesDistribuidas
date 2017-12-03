@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Listado de Lugares</h1>
+<h:form>
+<h:outputText value="No existe registros guardados" 
+rendered="#{empty lugarNivelControlador.listalugares}" />
+
+<h:dataTable value="#{lugarNivelControlador.listalugares}" var="lugarnivelacion" 
+rendered="#{not empty lugarNivelControlador.listalugares}">
+<h:column>
+<f:facet name="header">Codigo</f:facet>
+#{lugarnivelacion.codigo}
+</h:column>
+<h:column>
+<f:facet name="header">Lugar</f:facet>
+#{lugarnivelacion.lugar}
+</h:column>
+<h:column>
+<f:facet name="header">Editar</f:facet>
+<h:commandButton action="#{lugarNivelControlador.loadDatosEditar(LugarNivelacion.codigo)}" value="Editar" />
+</h:column>
+<h:column>
+<f:facet name="header">Eliminar</f:facet>
+<h:commandButton action="#{lugarNivelControlador.eliminarLugares(LugarNivelacion.codigo)}" value="Eliminar" />
+</h:column>
+</h:dataTable>
+<h:commandButton action="GuardarLugar" value="Crear nuevo lugar" />
+</h:form>
+
+
+</body> 
+</html>

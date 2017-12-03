@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Listado de Precios</h1>
+<h:form>
+<h:outputText value="No existe registros guardados" 
+rendered="#{empty precioControlador.listaprecios}" />
+
+<h:dataTable value="#{precioControlador.listaprecios}" var="precios" 
+rendered="#{not empty precioControlador.listaprecios}">
+<h:column>
+<f:facet name="header">Codigo</f:facet>
+#{precios.codigo}
+</h:column>
+<h:column>
+<f:facet name="header">Precioxhora</f:facet>
+#{precios.precioxhora}
+</h:column>
+<h:column>
+<f:facet name="header">PrecioTotal</f:facet>
+#{precios.preciototal}
+</h:column>
+<h:column>
+<f:facet name="header">Editar</f:facet>
+<h:commandButton action="#{precioControlador.loadDatosEditar(precios.codigo)}" value="Editar" />
+</h:column>
+<h:column>
+<f:facet name="header">Eliminar</f:facet>
+<h:commandButton action="#{precioControlador.eliminarPrecios(precios.codigo)}" value="Eliminar" />
+</h:column>
+</h:dataTable>
+<h:commandButton action="GuardarPrecio" value="Crear precio nuevo" />
+</h:form>
+
+
+</body> 
+</html>

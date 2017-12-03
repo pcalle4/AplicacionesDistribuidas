@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+<h1>Crear Lugar</h1>
+<h:form>
+<h:panelGrid columns="3">
+
+	<h:outputLabel value="Codigo:" for="codigo" />
+ 	<h:inputText value="#{lugarNivelControlador.lugnive.codigo}" id="codigo" />
+ 	<h:message for="codigo"/>
+ 	
+ 	<h:outputLabel value="Lugar:" for="lugar" />
+ 	<h:inputText value="#{lugarNivelControlador.lugnive.lugar}" id="lugar" />
+ 	<h:message for="lugar"/>
+ 	
+
+	<h:commandButton action="#{lugarNivelControlador.guardar()}" value="Guardar" />
+
+</h:panelGrid>
+
+</h:form>
+
+
+</body> 
+</html>
