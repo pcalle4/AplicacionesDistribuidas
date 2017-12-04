@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+
+<body> 
+ <div id="wrapper">
+ 			<div id="logo">
+				<h1>S.O.S<span>cholar</span></h1>
+				<p>Nemo enim ipsam voluptatem quia</p>
+			</div>
+			
+				<div id="menu" class="round">
+					<ul>
+						<li><a href="../homepage.xhtml" title="" class="round active">Homepage</a></li>
+						<li><a href="../crearEstudiante.xhtml" title="" class="round">Registro de Estudiantes</a></li>
+						<li><a href="#" title="" class="round">Services</a></li>
+						<li><a href="#" title="" class="round">Products</a></li>
+						<li><a href="#" title="" class="round">My Account</a></li>
+						<li><a href="#" title="" class="round">Contact Us</a></li>
+					</ul>	
+				</div>
+				
+			<div id="splash">
+					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+				</div>
+			<div id="page" class="round">
+			
+	<h1>Formulario de ingreso de datos del estudiante</h1>
+	<ul>
+	<h:panelGrid>
+		
+		<h:outputLabel value="Id:" for="codigo"/>
+		<h:inputText id="codigo" value="#{estudianteControlador.estudiante.est_id}" />
+		<h:message for="codigo"/>
+		
+		<h:outputLabel value="Nombre:" for="nombre"/>
+		<h:inputText id="nombre" value="#{estudianteControlador.estudiante.est_nombre}" />
+		<h:message for="nombre"/>
+	
+		<h:outputLabel value="Apellido:" for="apellido"/>
+		<h:inputText id="apellido" value="#{estudianteControlador.estudiante.est_apellido}" />
+		<h:message for="apellido"/>
+		
+		<h:outputLabel value="CI:" for="cedula"/>
+		<h:inputText id="cedula" value="#{estudianteControlador.estudiante.est_cedula}" />
+		<h:message for="cedula"/>
+		
+		<h:outputLabel value="Telefono:" for="telefono"/>
+		<h:inputText id="telefono" value="#{estudianteControlador.estudiante.est_telefono}" />
+		<h:message for="telefono"/>
+	
+		<h:outputLabel value="Email:" for="mail"/>
+		<h:inputText id="mail" value="#{estudianteControlador.estudiante.est_mail}" />
+		<h:message for="mail"/>
+	
+		<h:outputLabel value="Password:" for="contrasena"/>
+		<h:inputSecret id="contrasena" value="#{estudianteControlador.estudiante.est_contrasena}" />
+		<h:message for="codigo"/>
+	</h:panelGrid>
+	
+	<h:commandButton action="#{estudianteControlador.guardar()}" value="Guardar" />
+	<h:commandButton action="listado-estudiantes" value="Cancelar" />
+	</ul>
+ 	</div>
+</div>
+</body>
+</html>

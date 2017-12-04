@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h1>Listado Especialidades</h1>
+<h:form>
+<h:outputText value="No existen registros guardados" 
+rendered="#{empty especialidadControlador.especialidades}"/>
+
+<h:dataTable value="#{especialidadControlador.especialidades}" var="especialidad"
+rendered="#{not empty especialidadControlador.especialidades}">
+<h:column>
+	<f:facet name="header">Id</f:facet>
+	#{especialidad.esp_id}
+	<f:facet name="header">Nombre</f:facet>
+	#{especialidad.esp_nombre}
+	
+	<h:column>
+	<f:facet name="header">Acciones</f:facet>
+	<h:commandButton action="#{especialidadControlador.loadDatosEditar(especialidad.esp_id)}" value="Editar" />
+	</h:column>
+	
+	<h:column>
+	<f:facet name="header">Acciones</f:facet>
+	<h:commandButton action="#{especialidadControlador.borrarEspecialidad(especialidad.esp_id)}" value="Borrar" />
+	</h:column>
+	
+</h:column>
+</h:dataTable>
+<h:commandButton action="crearEspecialidad" value="Crear Nueva Especialidad" />
+</h:form>
+</body> 
+</html>

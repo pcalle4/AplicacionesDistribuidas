@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+      <head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+	 </head>
+
+<h:head></h:head> 
+		<body> 
+		<div id="wrapper">
+		<div id="logo">
+								<h1>S.O.S<span>cholar</span></h1>
+								<p>El éxito llega a quienes están dispuestos a trabajar un poco más duro que los demás.</p>
+				</div>
+				<div id="menu" class="round">
+							<ul>
+								<li><a href="../homepage.xhtml" title="" class="round active">Homepage</a></li>
+								<li><a href="../crearEstudiante.xhtml" title="" class="round">Registro Estudiantes</a></li>
+								<li><a href="#" title="" class="round">Registro Tutores</a></li>
+								<li><a href="#" title="" class="round">Registro Especialidad</a></li>
+								<li><a href="#" title="" class="round">Registro Áreas</a></li>
+								<li><a href="#" title="" class="round">Contact Us</a></li>
+							</ul>	
+						</div>
+						<div id="splash">
+							<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+						</div>
+						<div id="page" class="round">
+		<h1>Listado Areas Academicas]</h1>
+		<h:form>
+		<h:outputText value="No existen registros guardados" 
+		rendered="#{empty academicasControlador.academicas}"/>
+		
+		<h:dataTable value="#{academicasControlador.academicas}" var="academicas"
+		rendered="#{not empty academicasControlador.academicas}">
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+			#{academicas.are_id}
+			<f:facet name="header">Nombre</f:facet>
+			#{academicas.are_nombre}
+			
+			<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{academicasControlador.loadDatosEditar(academicas.are_id)}" value="Editar" />
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{academicasControlador.borrarAcademica(academicas.are_id)}" value="Borrar" />
+			</h:column>
+		</h:column>
+		</h:dataTable>
+		<h:commandButton action="crearAreas" value="Crear Nueva Area Academica" />
+		</h:form>
+		
+		</div>
+		</div>
+		</body> 
+</html>

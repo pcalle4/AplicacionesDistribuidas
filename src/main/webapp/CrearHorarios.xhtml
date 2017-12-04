@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+
+<body> 
+ <div id="wrapper">
+		 			<div id="logo">
+						<h1>S.O.S<span>cholar</span></h1>
+						<p>El éxito llega a quienes están dispuestos a trabajar un poco más duro que los demás.</p>
+					</div>
+					
+	<div id="page" class="round">
+	
+				<div id="menu" class="round">
+					<ul>
+						<li><a href="homepage.xhtml" title="" class="round ">Homepage</a></li>
+						<li><a href="#" title="" class="round">Servicios</a></li>
+						<li><a href="#" title="" class="round">Acerca de</a></li>
+						<li><a href="#" title="" class="round">Login</a></li>
+						<li><a href="#" title="" class="round">Contáctanos</a></li>
+					</ul>	
+				</div>
+				<div id="splash">
+					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+				</div>
+     <div id="wrapper2" class="round">
+     
+			<div id="sidebar" class="round">
+							
+								<h3>Registro de Estudiantes</h3>
+								<ul>
+								   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
+								   <li><a href="listado-estudiantes.xhtml">Listado de Estudiantes</a></li>
+								</ul>				
+								
+								<h3>Registro de Tutores</h3>
+								<ul>
+								   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
+								   <li><a href="listado-tutores.xhtml">Listado de Tutores</a></li>
+								</ul>
+		
+								<h3>Registro de Asignaturas</h3>
+								<ul>
+								   <li><a href="crearAreas.xhtml">Formulario de Registro Áreas Académicas</a></li>
+								   <li><a href="listado-areas.xhtml">Listado de Áreas Académicas Registradas</a></li>
+								    <li><a href="crearEspecialidad.xhtml">Formulario de Registro Especialidades</a></li>
+								   <li><a href="listado-tutores.xhtml">Listado de Especialidades Académicas</a></li>
+								</ul>
+							
+							<!-- End Sidebar -->				
+			</div>
+			
+				<div id="content" class="round">
+						<h1>Crear Horarios</h1>
+						<ol>
+						<h:form>
+							<h:panelGrid columns="3">
+								<h:outputLabel value="Id:" for="codigo"/>
+								<h:inputText id="codigo" value="#{horariosControlador.hor.codigo}" />
+								<h:message for="codigo"/>
+								
+								<h:outputLabel value="Horario" for="horario"/>
+								<h:inputText id="horario" value="#{horariosControlador.hor.horario}" />
+								<h:message for="horario"/>
+							</h:panelGrid>
+							
+							<h:commandButton action="#{horariosControlador.Guardar()}" value="Guardar" />
+							
+							<h:commandButton action="listado-horarios" value="Cancelar" />
+						</h:form>
+						</ol>
+					<div style="clear: both"></div>
+			 </div>
+		</div>
+   </div>
+</div>
+
+		</body>
+</html>

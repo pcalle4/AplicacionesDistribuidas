@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<h:head></h:head> 
+		<body> 
+	 <div id="wrapper">
+	 <div id="logo">
+						<h1>S.O.S<span>cholar</span></h1>
+						<p>El éxito llega a quienes están dispuestos a trabajar un poco más duro que los demás.</p>
+		</div>
+			<div id="menu" class="round">
+					<ul>
+						<li><a href="../homepage.xhtml" title="" class="round active">Homepage</a></li>
+						<li><a href="../crearEstudiante.xhtml" title="" class="round">Registro Estudiantes</a></li>
+						<li><a href="#" title="" class="round">Registro Tutores</a></li>
+						<li><a href="#" title="" class="round">Registro Especialidad</a></li>
+						<li><a href="#" title="" class="round">Registro Áreas</a></li>
+						<li><a href="#" title="" class="round">Contact Us</a></li>
+					</ul>	
+			</div>
+		<div id="splash">
+					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+				</div>
+		<div id="page" class="round">
+		<h1>Listado Tutores</h1>
+		<h:form>
+		<h:outputText value="No existen registros guardados" 
+		rendered="#{empty tutorControlador.tutores}"/>
+		
+		<h:dataTable value="#{tutorControlador.tutores}" var="tutor"
+		rendered="#{not empty tutorControlador.tutores}">
+		<h:column>
+			<f:facet name="header">Id</f:facet>
+			#{tutor.tut_id}
+			<f:facet name="header">Nombre</f:facet>
+			#{tutor.tut_nombre}
+			<f:facet name="header">Apellido</f:facet>
+			#{tutor.tut_apellido}
+			<f:facet name="header">CI</f:facet>
+			#{tutor.tut_cedula}
+			<f:facet name="header">Telefono</f:facet>
+			#{tutor.tut_telefono}
+			<f:facet name="header">Email</f:facet>
+			#{tutor.tut_mail}
+			<f:facet name="header">Password</f:facet>
+			#{tutor.tut_contrasena}
+			
+			<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{tutorControlador.loadDatosEditar(tutor.tut_id)}" value="Editar" />
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Acciones</f:facet>
+			<h:commandButton action="#{tutorControlador.borrarTutor(tutor.tut_id)}" value="Borrar" />
+			</h:column>
+		</h:column>
+		</h:dataTable>
+		<h:commandButton action="crearTutor" value="Crear Nuevo Tutor" />
+		</h:form>
+	</div>
+	</div>
+		</body> 
+</html>
