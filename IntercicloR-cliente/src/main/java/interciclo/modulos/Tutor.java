@@ -1,4 +1,4 @@
-package interciclo.modelos;
+package interciclo.modulos;
 
 import java.io.Serializable;
 

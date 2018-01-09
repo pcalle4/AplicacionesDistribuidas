@@ -1,6 +1,6 @@
 package interciclo.clienterest;
 
-import interciclo.modelos.Tutor;
+import interciclo.modulos.Tutor;
 
 public class Main {
 
@@ -10,6 +10,8 @@ public class Main {
 		
 		Tutor tut = tutid.getTutor(1);
 		System.out.println(tut);
+		
+		
 
 	}
 
