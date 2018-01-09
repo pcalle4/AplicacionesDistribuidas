@@ -30,7 +30,15 @@ public class TutorServices {
 		return tut;
 	}
 	
-
+ @GET
+ @Path("/tutorcedula")
+ @Produces("application/json")
+ 
+ public Tutor getTutorcedula(@QueryParam("cedula") String cedula) {
+	 Tutor tut = tdao.getTutorByCedula(cedula);
+	 System.out.println(tut);
+	 return tut;
+ }
 	
 
 }

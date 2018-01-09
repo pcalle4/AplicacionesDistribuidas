@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
+import javax.ws.rs.GET;
 
 import interciclo.modulos.Tutor;
 
@@ -71,7 +71,16 @@ public class TutorDAO {
 		tutor.getTut_nombre();
 		return tutor;
 	}
+	public Tutor getTutorByCedula(String cedula) {
+		String sql = "SELECT t FROM Tutor t where tut_cedula=:cedula";
+	
+		Query query = em.createQuery(sql, Tutor.class);
+		query.setParameter("cedula", cedula);
+		Tutor tutor =(Tutor) query.getSingleResult();
+		tutor.getHorarios();
+		return tutor;
+	}
 
-
+	
 
 }
