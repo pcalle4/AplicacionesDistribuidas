@@ -32,6 +32,13 @@ public class TutorServices {
 		System.out.println(tut);
 		return tut;
 	}
+	@GET
+	@Path("/tutores")
+	@Produces("application/json")
+	public List<Tutor> listadoTutor(){
+	List<Tutor> tutlist = tdao.listadoTutor();
+	return tutlist;
+	}
 	
 	@Inject
 	private LugaNiveDAO ldao;
@@ -43,7 +50,14 @@ public class TutorServices {
 		List<LugarNivelacion> lugares = ldao.listadoLugNive();
 		return lugares;
 	}
-
+	@GET
+	@Path("/lugarid")
+	@Produces("application/json")
+	public LugarNivelacion getCodigo(@QueryParam("id") int id) {
+		LugarNivelacion lugar = ldao.leer(id);
+		System.out.println(lugar);
+		return lugar;
+	}
 
 	
 
