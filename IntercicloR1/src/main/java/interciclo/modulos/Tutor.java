@@ -96,8 +96,7 @@ public class Tutor implements Serializable {
 	
 	
 	public Tutor() {
-		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 

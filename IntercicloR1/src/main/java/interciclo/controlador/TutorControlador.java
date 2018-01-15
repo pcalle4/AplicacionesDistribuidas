@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.html.HtmlDataTable;
 import javax.inject.Inject;
 
 
@@ -22,6 +23,9 @@ public class TutorControlador {
 	private Tutor tutor;
 	private int id;
 	private String impri;
+	private  HtmlDataTable tabla;
+	private ArrayList<Tutor> lista= new ArrayList<Tutor>(){};
+	 
 	
 	@Inject
 	private TutorDAO tdao;
@@ -35,10 +39,18 @@ public class TutorControlador {
 		this.tutores = tutores;
 	}
 	
+	
+
+	
+	
+	public TutorControlador() {
+		
+	}
 	@PostConstruct
 	public void init() {
 		tutor = new Tutor();
 		tutores=new ArrayList<>();
+		
 		tutor.addHorarios(new Horarios());
 		loadTutor();
 		
@@ -50,9 +62,14 @@ public class TutorControlador {
 	public void setTutor(Tutor tutor) {
 		this.tutor = tutor;
 	}
+	
+	
+	
 	public void loadTutor() {	//datos de lista
 		tutores = tdao.listadoTutor();
 	}
+	
+
 	public String loadDatosEditar(int id) {
 		System.out.println("Cargando datos"+ id);
 		tutor = tdao.leer(id);
@@ -120,5 +137,32 @@ public void setImpri(String impri) {
 	impri = orden.toString();
 	return null;
 }*/
+public void cargarLista() {
+	tutor=(Tutor) tabla.getRowData();
+	this.lista.add(tutor);
+}
+
+
+
+
+public ArrayList<Tutor> getLista() {
+	return lista;
+}
+public void setLista(ArrayList<Tutor> lista) {
+	this.lista = lista;
+}
+
+public TutorDAO getTdao() {
+	return tdao;
+}
+public void setTdao(TutorDAO tdao) {
+	this.tdao = tdao;
+}
+public HtmlDataTable getTabla() {
+	return tabla;
+}
+public void setTabla(HtmlDataTable tabla) {
+	this.tabla = tabla;
+}
 
 }
