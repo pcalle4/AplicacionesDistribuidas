@@ -93,6 +93,12 @@ public class TutorControlador {
 		loadTutor();
 		return "listado-tutores";
 	}
+	public String guardar1() {
+		System.out.println(tutor);
+		tdao.guardarTutor(tutor);
+		loadTutor();
+		return "registro-exitoso";
+	}
    public String borrarTutor(int id) {
 	   tdao.borrar(id);
 	   loadTutor();

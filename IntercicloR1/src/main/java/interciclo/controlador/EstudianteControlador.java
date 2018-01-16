@@ -53,6 +53,13 @@ public class EstudianteControlador{
 		loadEstudiante();
 		return "listado-estudiantes";
 	}
+	
+	public String guardar1() {
+		System.out.println(estudiante);
+		estdao.guardarEstudiante(estudiante);
+		loadEstudiante();
+		return "registro-exitoso";
+	}
 	public String nuevo() {
 		estudiante=new Estudiante();
 		return "crearEstudiante";
