@@ -29,10 +29,10 @@ public class SolicitudCita implements Serializable{
 	private int codigo;
 	
 	
-	@NotNull
+	/*@NotNull
 	@Column(name="sol_fecha",length=10)
 	@Size(max=10)
-	private String fecha;
+	private String fecha;*/
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Tutor tutor;
@@ -61,12 +61,12 @@ public class SolicitudCita implements Serializable{
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	public String getFecha() {
+	/*public String getFecha() {
 		return fecha;
 	}
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
-	}
+	}*/
 
 	public Tutor getTutor() {
 		return tutor;

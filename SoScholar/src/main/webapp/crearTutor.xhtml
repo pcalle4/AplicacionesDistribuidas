@@ -53,11 +53,14 @@
 						   <li><a href="GuardarLugar.xhtml">Formulario de Registro</a></li>
 						   <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro</a></li>
 						</ul>
-						
+						<h3>Registro de Precios de Tutorias</h3>
+						<ul>
+						   <li><a href="GuardarPrecio.xhtml">Formulario de Registro</a></li>
+						   <li><a href="ListadoPrecio.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
 						<h3>Sesiones de Estudio</h3>
 						<ul>
-						   <li><a href="listados.xhtml">Listado General</a></li>
-						    <li><a href="FormularioOfertaHorario.xhtml">Formulario de Registro Tutorias</a></li>
+						    <li><a href="crearCita.xhtml">Formulario de Registro Tutorias</a></li>
 						</ul>
 						
 						<h3>Logout</h3>
@@ -113,7 +116,12 @@
 			<h:outputLabel value="Precios por hora:" for="precios"/>
 			<h:inputText id="precios" value="#{tutorControlador.tutor.tut_precio}" />
 			<h:message for="precios" errorClass="invalid"/>
-		
+		 Seleccionar un precio
+			<br/>
+			 <h:selectOneMenu value="#{asignarEstudiante.idprecio}">
+			    <f:selectItems value="#{asignarEstudiante.ltsPrecio}" var="precio" itemValue="#{precio.codigo}" itemLabel="#{precio.preciototal}" />
+			</h:selectOneMenu>
+			
 		</h:panelGrid>
 		
 	    <h:commandButton action="#{tutorControlador.addHorarios()}" value="+ horarios" />

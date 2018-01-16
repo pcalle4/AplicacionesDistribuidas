@@ -115,7 +115,7 @@ public class AsignarEstudiante{
 			Date date = new Date();
 			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 			
-			solicitudCita.setFecha(dateFormat.format(date));
+			//solicitudCita.setFecha(dateFormat.format(date));
 			solicitudCita.setEstudiante(studentSelected);
 			solicitudCita.setLugarNivelaciones(lug);
 			solicitudCita.setPrecios(p);

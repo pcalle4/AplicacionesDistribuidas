@@ -13,7 +13,63 @@
 	</head>
 
 	<body> 
+	<div id="wrapper">
+	<div id="logo">
+				<h1>S.O.S<span>cholar</span></h1>
+	</div>
+	<div id="page" class="round">
+	<div id="menu" class="round">
+					<ul>
+						<li><a href="homepage.xhtml" title="" class="round ">Homepage</a></li>
+						<li><a href="#" title="" class="round">Servicios</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="#" title="" class="round">Acerca de</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="#" title="" class="round">Login</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="#" title="" class="round">Contáctanos</a></li>
+					</ul>	
+		</div>
+		<div id="splash">
+					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+		</div>
+		<div id="wrapper2" class="round">
+		 <div id="sidebar" class="round">
+					
+						<h3>Registro de Estudiantes</h3>
+						<ul>
+						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
+						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
+						</ul>				
+						
+						<h3>Registro de Tutores</h3>
+						<ul>
+						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
+						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
+
+						<h3>Registro de Lugares de Estudio</h3>
+						<ul>
+						   <li><a href="GuardarLugar.xhtml">Formulario de Registro</a></li>
+						   <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
+						
+						<h3>Sesiones de Estudio</h3>
+						<ul>
+						    <li><a href="crearCita.xhtml">Formulario de Registro Tutorias</a></li>
+						</ul>
+						
+						<h3>Logout</h3>
+						<ul>
+						   <li><a href="logAdmin.xhtml">Cerrar Sesión</a></li>
+						</ul>
+					
+					
+					<!-- End Sidebar -->				
+					</div>
+					<div id="content" class="round">
   		<h:form>
+  		<h3>Ingrese el numero de cedula del estudiante</h3>
   			<h:inputText value="#{asignarEstudiante.nombreEstudiante}" />
   			<h:commandButton action="#{asignarEstudiante.ltsStudenbyid()}" value="Buscar" styleClass="btn btn-primary"/>
   		
@@ -22,23 +78,22 @@
 
     			<h:column>
     				<!-- column header -->
-    				<f:facet name="header">Nombre</f:facet>
+    				<f:facet name="header">Nombre---</f:facet>
     				<!-- row record -->
     				#{ltsEst.est_nombre}
     			</h:column>
 
     			<h:column>
-    				<f:facet name="header">Apellido</f:facet>
+    				<f:facet name="header">Apellido---</f:facet>
     				#{ltsEst.est_apellido}
     			</h:column>
 
     			<h:column>
-    				<f:facet name="header">Area</f:facet>
+    				<f:facet name="header">Cedula</f:facet>
     				#{ltsEst.est_cedula}
     			</h:column>
 
     			<h:column>
-    				<f:facet name="header">seleccionar</f:facet>
     				<h:commandButton action="#{asignarEstudiante.seleccionarEst(ltsEst)}" value="Seleccionar" styleClass="btn btn-primary"/>
     			</h:column>
 
@@ -73,8 +128,15 @@
 			</h:selectOneMenu>
 
 			<br/>
+			
   				<h:commandButton action="#{asignarEstudiante.guardar()}" value="Guardar" styleClass="btn btn-primary"/>
   			</h:form>
+  			
+    		</div>
+    		<div style="clear: both"></div>
+  			</div>
+  			</div>
+  	</div>
 	</body>
 
 
