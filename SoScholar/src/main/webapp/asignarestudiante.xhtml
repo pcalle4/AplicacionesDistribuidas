@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+   <head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="resources/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+
+	<body> 
+  		<h:form>
+  			<h:inputText value="#{asignarEstudiante.nombreEstudiante}" />
+  			<h:commandButton action="#{asignarEstudiante.ltsStudenbyid()}" value="Buscar" styleClass="btn btn-primary"/>
+  		
+  		
+  		<h:dataTable value="#{asignarEstudiante.ltsEstudiantes}" var="ltsEst">
+
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Nombre</f:facet>
+    				<!-- row record -->
+    				#{ltsEst.est_nombre}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">Apellido</f:facet>
+    				#{ltsEst.est_apellido}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">Area</f:facet>
+    				#{ltsEst.est_cedula}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">seleccionar</f:facet>
+    				<h:commandButton action="#{asignarEstudiante.seleccionarEst(ltsEst)}" value="Seleccionar" styleClass="btn btn-primary"/>
+    			</h:column>
+
+    		</h:dataTable>
+    		<h:outputText value="#{asignarEstudiante.studentSelected.est_nombre}" />
+    		<h:outputText value="#{asignarEstudiante.studentSelected.est_apellido}" />
+    		<h:outputText value="#{asignarEstudiante.studentSelected.est_cedula}" />
+    		
+			</h:form>
+			
+			<h:form>
+			
+			<br/>
+			Seleccionar un precio
+			<br/>
+			 <h:selectOneMenu value="#{asignarEstudiante.idprecio}">
+			    <f:selectItems value="#{asignarEstudiante.ltsPrecio}" var="precio" itemValue="#{precio.codigo}" itemLabel="#{precio.preciototal}" />
+			</h:selectOneMenu>
+			
+			<br/>
+			Seleccionar un Horario
+			<br/>
+			<h:selectOneMenu value="#{asignarEstudiante.idhorario}">
+			    <f:selectItems value="#{asignarEstudiante.ltsHora}" var="hora" itemValue="#{hora.codigo}" itemLabel="#{hora.horario}" />
+			</h:selectOneMenu>
+			
+			<br/>
+			Seleccionar un Lugar
+			<br/>
+			<h:selectOneMenu value="#{asignarEstudiante.idlugar}">
+			    <f:selectItems value="#{asignarEstudiante.ltslugar}" var="lugar" itemValue="#{lugar.codigo}" itemLabel="#{lugar.lugar}" />
+			</h:selectOneMenu>
+
+			<br/>
+  				<h:commandButton action="#{asignarEstudiante.guardar()}" value="Guardar" styleClass="btn btn-primary"/>
+  			</h:form>
+	</body>
+
+
+</html>

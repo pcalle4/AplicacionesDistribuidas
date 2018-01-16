@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+
+<body> 
+ <div id="wrapper">
+		 			<div id="logo">
+						<h1>S.O.S<span>cholar</span></h1>
+						<p>El éxito llega a quienes están dispuestos a trabajar un poco más duro que los demás.</p>
+					</div>
+					
+	<div id="page" class="round">
+	
+				<div id="menu" class="round">
+					<ul>
+						<li><a href="homepage.xhtml" title="" class="round ">Homepage</a></li>
+						<li><a href="#" title="" class="round">Servicios</a></li>
+						<li><a href="#" title="" class="round">Acerca de</a></li>
+						<li><a href="#" title="" class="round">Login</a></li>
+						<li><a href="#" title="" class="round">Contáctanos</a></li>
+					</ul>	
+				</div>
+				<div id="splash">
+					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+				</div>
+     <div id="wrapper2" class="round">
+     
+			<div id="sidebar" class="round">
+							
+						<h3>Registro de Estudiantes</h3>
+						<ul>
+						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
+						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
+						</ul>				
+						
+						<h3>Registro de Tutores</h3>
+						<ul>
+						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
+						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
+
+						<h3>Registro de Asignaturas</h3>
+						<ul>
+						   <li><a href="crearAreas.xhtml">Formulario de Registro Áreas Académicas</a></li>
+						   <li><a href="listado-areas.xhtml">Editar o Borrar Registro de Áreas Académicas</a></li>
+						    <li><a href="crearEspecialidad.xhtml">Formulario de Registro Especialidades</a></li>
+						    <li><a href="listado-especialidades.xhtml">Editar o Borrar Registro de Especialidades</a></li>
+						    
+						</ul>
+						
+						<h3>Registro de Tutorias</h3>
+						<ul>
+						   <li><a href="CrearHorarios.xhtml">Formulario de Registro Horarios</a></li>
+						   <li><a href="listado-horarios.xhtml">Editar o Borrar Registro de Horarios</a></li>
+						    <li><a href="GuardarLugar.xhtml">Formulario de Registro de Lugares para clases</a></li>
+						    <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro de Lugares para clases</a></li>
+						   <li><a href="GuardarPrecio.xhtml">Formulario de Registro de precios para clases</a></li>
+						   <li><a href="ListadoPrecio.xhtml">Editar o Borrar Registro de precios para clases</a></li>
+						   
+			
+						</ul>
+						<h3>Sesiones de Estudio</h3>
+						<ul>
+						   <li><a href="listados.xhtml">Listado General</a></li>
+						    <li><a href="FormularioOfertaHorario.xhtml">Formulario de Registro Tutorias</a></li>
+						</ul>
+							
+							<!-- End Sidebar -->				
+			</div>
+			
+				<div id="content" class="round">
+						<h1>Registrarse</h1>
+						<ol>
+						<h:form>
+							<h:panelGrid columns="3">
+							
+								<h:outputLabel value="Correo:" for="correo"/>
+								<h:inputText id="correo" value="#{logInControlador.log.correo}" />
+								<h:message for="correo" errorClass="invalid"/>
+								
+								<h:outputLabel value="Contrasena:" for="contrasena"/>
+								<h:inputText id="contrasena" value="#{logInControlador.log.cont}" />
+								<h:message for="contrasena" errorClass="invalid"/>
+								
+								<h:outputLabel value="Estudiante" for="estudiante"/>
+								<h:inputText id="estudiante" value="#{logInControlador.log.codest}" />
+								<h:message for="estudiante" errorClass="invalid"/>
+								
+								<h:outputLabel value="Tutor:" for="tutor"/>
+								<h:inputText id="tutor" value="#{logInControlador.log.codtut}" />
+								<h:message for="tutor" errorClass="invalid"/>
+								
+								
+							</h:panelGrid>
+							
+							<h:commandButton action="#{solicitudCitaControlador.Guardar()}" value="Guardar" />
+							<h:commandButton action="listado-login" value="Cancelar" />
+						</h:form>
+						</ol>
+					<div style="clear: both"></div>
+			 </div>
+		</div>
+   </div>
+</div>
+
+		</body>
+</html>
