@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import interciclo.datos.LogInDAO;
@@ -11,6 +12,7 @@ import interciclo.modulos.LogIn;
 
 
 @ManagedBean
+@SessionScoped
 public class LogInControlador {
 	@Inject
 	private LogInDAO ldao;
@@ -52,7 +54,7 @@ public class LogInControlador {
 	
 	public String loadDatosEditar(int id) {
 		System.out.println("Cargando los Datos a editar" + id);
-		log = ldao.leer(id);
+		log = ldao.leer("usuario");
 		return "CrearHorarios";
 	}
 	

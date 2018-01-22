@@ -107,6 +107,6 @@ public class Precios implements Serializable {
 	@Override	
 	public String toString() {
 		return "Precios [codigo=" + codigo + ", precioxhora=" + precioxhora + ", preciototal=" + preciototal
-				+ "] ->prueba";
+				+ "] ";
 	}
 }

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.validation.constraints.NotNull;
@@ -20,19 +21,20 @@ import javax.validation.constraints.NotNull;
 public class LogIn implements Serializable {
 
 	@Id
-	@TableGenerator(name="tabLogin", allocationSize = 1, initialValue = 0)
-	@GeneratedValue(strategy=GenerationType.TABLE, generator="tabLogin")
+	@SequenceGenerator(name = "LOGIN_ID_GENERATOR",sequenceName = "LOG_CON_ID")
+	@TableGenerator(name="tabLogIn", allocationSize = 1, initialValue = 0)
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="tabLogIn")
 	@Column(name="log_codigo")
 	private int codigo;
 	
-	@NotNull
+	@NotNull(message="*Campo obligatorio. Ingresar el correo del usuario por favor.")
 	@Column(name="log_correo")
 	private String correo;
-	@NotNull
+	@NotNull(message="*Campo obligatorio. Ingresar el password del usuario  por favor.")
 	@Column(name="log_cont")
 	private String cont;
 	
-	
+	private boolean temporal;
 	
 	@OneToOne(fetch=FetchType.EAGER, mappedBy="logIn")
 	private Tutor tutor;
@@ -82,10 +84,18 @@ public class LogIn implements Serializable {
 		this.estudiante = estudiante;
 	}
 	
+	public boolean isTemporal() {
+		return temporal;
+	}
+	public void setTemporal(boolean temporal) {
+		this.temporal = temporal;
+	}
 	@Override
 	public String toString() {
-		return "LogIn [codigo=" + codigo + ", correo=" + correo + ", cont=" + cont + "]";
+		return "LogIn [codigo=" + codigo + ", correo=" + correo + ", cont=" + cont + ", temporal=" + temporal
+				+ ", tutor=" + tutor + ", estudiante=" + estudiante + "]";
 	}
+	
 	
 	
 	

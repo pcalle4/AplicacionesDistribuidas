@@ -31,19 +31,19 @@
 	<div class="login" align="center">
 <div class="login-screen" align="left">
 	<div class="app-title" align="center">
-				<h1>Login</h1>
+				<center><h1>Login</h1></center>
 	</div>
 	<div class="login-form" >
 	<div class="control-group" >
-		<h:outputLabel styleClass="login-field-icon fui-user" for="login-name" value="username " />
-		<h:inputText type="text"  styleClass="login-field" value="#{logAdminDAO.username}" />
+		<center><h:outputLabel styleClass="login-field-icon fui-user" for="login-name" value="username "  /></center>
+		<center><h:inputText type="text"  styleClass="login-field" value="#{logAdminDAO.username}" /></center>
 	</div>
 		<br />
 			
-		<h:outputLabel value="password" />
-		<h:inputSecret value="#{logAdminDAO.password}"></h:inputSecret>
+		<center><h:outputLabel value="password" /></center>
+		<center><h:inputSecret value="#{logAdminDAO.password}"></h:inputSecret></center>
 		<br />
-		<h:commandButton value="Login" action="#{logAdminDAO.login()}" styleClass="btn btn-primary" align="center"></h:commandButton>
+		<h:commandButton value="Login" action="#{logAdminDAO.login()}" styleClass="btn btn-primary" align="center" style="width:80px"></h:commandButton>
 	</div>
 </div>
 	</div>

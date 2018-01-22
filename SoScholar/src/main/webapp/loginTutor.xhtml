@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<center><h2>Inicio de Sesión</h2></center>
+					
+					<br/>
+					<center><p><i>Usuario: <h:inputText value="#{tutorControlador.usuarioActual}" /></i></p></center>
+					<center><p><i>Password:  <h:inputSecret value="#{tutorControlador.passwordActual}" /></i></p></center>						
+					<br/>
+					<center>
+						<h:commandButton value="INICIAR" action="#{tutorControlador.logear()}" class="btn btn-primary" style="width:80px"/>
+					</center>
+					<br/>
+					<br/>
+					<center>
+						<h:commandButton value="OLVIDÉ MI PASSWORD" action="recuperarPassword" class="btn btn-primary" style="width:220px"/>
+					</center>
+					
+				</h:form>
+</body> 
+</html>

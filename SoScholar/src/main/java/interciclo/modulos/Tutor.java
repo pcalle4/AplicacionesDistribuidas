@@ -25,6 +25,8 @@ import javax.persistence.GenerationType;
 
 import org.hibernate.validator.constraints.Email;
 
+
+
 @Entity
 @Table(name="Tutor")
 public class Tutor implements Serializable {
@@ -79,6 +81,9 @@ public class Tutor implements Serializable {
 	@Column(name = "tut_precio")
 	private double tut_precio;
 	
+	//private UploadedFile uploadedFile;
+	
+	
 	@OneToMany(cascade= {CascadeType.ALL}, fetch=FetchType.EAGER)
 	@JoinColumn(name="tutor", referencedColumnName="tut_id")
 	private List<Horarios> horarios;
@@ -91,7 +96,8 @@ public class Tutor implements Serializable {
 	
 	
 	
-	@OneToOne(fetch=FetchType.EAGER) 
+	@OneToOne(cascade=javax.persistence.CascadeType.ALL, orphanRemoval=true) 
+	@JoinColumn(name="log_codigo")
 	private LogIn logIn;
 	
 	
@@ -300,6 +306,7 @@ public class Tutor implements Serializable {
 
 
 
+	
 	public LogIn getLogIn() {
 		return logIn;
 	}
@@ -311,13 +318,20 @@ public class Tutor implements Serializable {
 		this.logIn = logIn;
 	}
 
+   
+
+
+
+
+
 	public void addHorarios(Horarios horario) {
 		if(horarios==null)
 		horarios = new ArrayList<>();
 		horarios.add(horario);
 	}
 
-
+		
+	
 
 
 	@Override

@@ -11,6 +11,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+
 import interciclo.modulos.Tutor;
 
 @Stateless
@@ -85,6 +86,13 @@ public class TutorDAO {
 	    	
 	    	return null;
 	    }
+	}
+	
+	public void actualizarPassword(Tutor tutor){
+		em.merge(tutor);
+		em.merge(tutor.getLogIn());
+		
+	
 	}
 
 
