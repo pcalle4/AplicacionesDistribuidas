@@ -32,112 +32,74 @@
 					</ul>	
 		</div>
 		<div id="splash">
-					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+					<img src="images/libros.jpg" alt="" width="940" height="200" class="round" />
 		</div>
 	<div id="wrapper2" class="round">
-	 <div id="sidebar" class="round">
-						<h3>Registro de Estudiantes</h3>
-						<ul>
-						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
-						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
-						</ul>				
-						
-						<h3>Registro de Tutores</h3>
-						<ul>
-						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
-						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-
-							<h3>Registro de Lugares de Estudio</h3>
-						<ul>
-						   <li><a href="GuardarLugar.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Registro de Precios de Tutorias</h3>
-						<ul>
-						   <li><a href="GuardarPrecio.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoPrecio.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Sesiones de Estudio</h3>
-						<ul>
-						    <li><a href="crearCita.xhtml">Formulario de Registro Tutorias</a></li>
-						</ul>
-						
-						<h3>Logout</h3>
-						<ul>
-						   <li><a href="logAdmin.xhtml">Cerrar Sesión</a></li>
-						</ul>
-					
-					<!-- End Sidebar -->				
-					</div>
-	 <div id="content" class="round">
+	
+	
 		<h1>Registrar  Tutor</h1>
 		<h:form>
 		<h:panelGrid>
 			
 			<h:outputLabel value="Nombre:" for="nombre"/>
-			<h:inputText id="nombre" value="#{tutorControlador.tutor.tut_nombre}" />
+			<h:inputText id="nombre" value="#{tutorControlador.tutor.tut_nombre}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
 			<h:message for="nombre" errorClass="invalid"/>
 		   
 			<h:outputLabel value="Apellido:" for="apellido"/>
-			<h:inputText id="apellido" value="#{tutorControlador.tutor.tut_apellido}" />
+			<h:inputText id="apellido" value="#{tutorControlador.tutor.tut_apellido}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
 			<h:message for="apellido" errorClass="invalid"/>
 			
 			<h:outputLabel value="CI:" for="cedula"/>
-			<h:inputText id="cedula" value="#{tutorControlador.tutor.tut_cedula}">
+			<h:inputText id="cedula" value="#{tutorControlador.tutor.tut_cedula}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" >
 			<f:validator validatorId="interciclo.validador.validadorCedula" />
 			</h:inputText>
 			<h:message for="cedula" errorClass="invalid"/>
 			
 			<h:outputLabel value="Telefono:" for="telefono"/>
-			<h:inputText id="telefono" value="#{tutorControlador.tutor.tut_telefono}" />
+			<h:inputText id="telefono" value="#{tutorControlador.tutor.tut_telefono}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
 			<h:message for="telefono" errorClass="invalid"/>
 		
 			<h:outputLabel value="Email:" for="mail"/>
-			<h:inputText id="mail" value="#{tutorControlador.tutor.tut_mail}" />
+			<h:inputText id="mail" value="#{tutorControlador.tutor.tut_mail}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
 			<h:message for="mail" errorClass="invalid"/>
 		
 			<h:outputLabel value="Password:" for="contrasena"/>
-			<h:inputText id="contrasena" value="#{tutorControlador.tutor.tut_contrasena}" />
+			<h:inputText id="contrasena" value="#{tutorControlador.tutor.tut_contrasena}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
 			<h:message for="contrasena" errorClass="invalid"/>
 			
 			<h:outputLabel value="Area Academica:" for="area"/>
-			<h:inputText id="area" value="#{tutorControlador.tutor.tut_area}" />
+			<h:inputText id="area" value="#{tutorControlador.tutor.tut_area}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
 			<h:message for="area" errorClass="invalid"/>
 			
 			<h:outputLabel value="Especialidad:" for="especialidad"/>
-			<h:inputText id="especialidad" value="#{tutorControlador.tutor.tut_especialidad}" />
+			<h:inputText id="especialidad" value="#{tutorControlador.tutor.tut_especialidad}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
 			<h:message for="especialidad" errorClass="invalid"/>
 			
 			<h:outputLabel value="Nivel:" for="nivel"/>
-			<h:inputText id="nivel" value="#{tutorControlador.tutor.tut_anivel}" />
+			<h:inputText id="nivel" value="#{tutorControlador.tutor.tut_anivel}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
 			<h:message for="nivel" errorClass="invalid"/>
 			
 			<h:outputLabel value="Precios por hora:" for="precios"/>
-			<h:inputText id="precios" value="#{tutorControlador.tutor.tut_precio}" />
+			<h:inputText id="precios" value="#{tutorControlador.tutor.tut_precio}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
 			<h:message for="precios" errorClass="invalid"/>
-		 Seleccionar un precio
-			<br/>
-			 <h:selectOneMenu value="#{asignarEstudiante.idprecio}">
-			    <f:selectItems value="#{asignarEstudiante.ltsPrecio}" var="precio" itemValue="#{precio.codigo}" itemLabel="#{precio.preciototal}" />
-			</h:selectOneMenu>
+		 
 			
 		</h:panelGrid>
 		
 	    <h:commandButton action="#{tutorControlador.addHorarios()}" value="+ horarios" />
-		<h:dataTable value="#{tutorControlador.tutor.horarios}" var="horarios">
+		<h:dataTable value="#{tutorControlador.tutor.horarios}" var="horarios" >
 		<h:column>
 		<f:facet name="header">Horario</f:facet>
-		<h:inputText value="#{horarios.horario}" />
+		<h:inputText value="#{horarios.horario}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
 		</h:column>
 		
 		</h:dataTable>
 		
 		
 		<h:commandButton action="#{tutorControlador.guardar()}" value="Guardar" styleClass="btn btn-primary"  />
-		<h:commandButton immediate="true" action="listado-tutores" value="Cancelar" styleClass="btn btn-primary" />
+		<h:commandButton immediate="true" action="regtut" value="Cancelar" styleClass="btn btn-primary" />
 		</h:form>
-	</div>
+	
 	<div style="clear: both"></div>
 	 </div>
 	</div>

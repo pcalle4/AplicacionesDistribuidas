@@ -35,58 +35,24 @@
 					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
 		</div>
 		 <div id="wrapper2" class="round">
-		  <div id="sidebar" class="round">
-					
-								<h3>Registro de Estudiantes</h3>
-						<ul>
-						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
-						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
-						</ul>				
-						
-						<h3>Registro de Tutores</h3>
-						<ul>
-						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
-						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-
-							<h3>Registro de Lugares de Estudio</h3>
-						<ul>
-						   <li><a href="GuardarLugar.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Registro de Precios de Tutorias</h3>
-						<ul>
-						   <li><a href="GuardarPrecio.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoPrecio.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Sesiones de Estudio</h3>
-						<ul>
-						    <li><a href="crearCita.xhtml">Formulario de Registro Tutorias</a></li>
-						</ul>
-						
-						<h3>Logout</h3>
-						<ul>
-						   <li><a href="logAdmin.xhtml">Cerrar Sesión</a></li>
-						</ul>
-					<!-- End Sidebar -->				
-					</div>
-		<div id="content" class="round">
+		 
+		
 			<h1>Registrar  Precios</h1>
 			<h:form>
 			<h:panelGrid columns="3">
 			
 			 	<h:outputLabel value="Precio x Hora:" for="precioxhora" />
-			 	<h:inputText value="#{precioControlador.precios.precioxhora}" id="precioxhora" />
+			 	<h:inputText value="#{precioControlador.precios.precioxhora}" id="precioxhora" style="border: solid 2px #003876; height: 35px; width: 600px" class="form-control"/>
 			 	<h:message for="precioxhora" errorClass="invalid"/>
 			 	
 			 	
-			 	
+			 	<center>
 				<h:commandButton action="#{precioControlador.guardar()}" value="Guardar" styleClass="btn btn-primary" />
-			
+			   </center>
 			</h:panelGrid>
 			
 			</h:form>
-		</div>
+		
 		<div style="clear: both"></div>
 		</div>
 	</div>	

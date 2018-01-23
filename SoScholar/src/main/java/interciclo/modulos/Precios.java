@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 @Table(name="Precios")
 public class Precios implements Serializable {
@@ -18,6 +20,7 @@ public class Precios implements Serializable {
 	private int codigo;
 	
 	@NotNull
+	@NotEmpty
 	@Column(name="pre_precioxhora")
 	private String precioxhora;
 	

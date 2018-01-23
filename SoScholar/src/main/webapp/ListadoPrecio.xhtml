@@ -9,13 +9,13 @@
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="resources/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	</head>
 	<body> 
  <div id="wrapper">
              
              <div id="logo">
 				<h1>S.O.S<span>cholar</span></h1>
-				<p>Prepárate para alcanzar el éxito.</p>
 			 </div>
 			<div id="page" class="round">	
 			<div id="menu" class="round">
@@ -34,52 +34,16 @@
 					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
 		     </div>
 			<div id="wrapper2" class="round">
-				 <div id="sidebar" class="round">
-					
-						<h3>Registro de Estudiantes</h3>
-						<ul>
-						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
-						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
-						</ul>				
-						
-						<h3>Registro de Tutores</h3>
-						<ul>
-						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
-						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-
-							<h3>Registro de Lugares de Estudio</h3>
-						<ul>
-						   <li><a href="GuardarLugar.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Registro de Precios de Tutorias</h3>
-						<ul>
-						   <li><a href="GuardarPrecio.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoPrecio.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Sesiones de Estudio</h3>
-						<ul>
-						    <li><a href="crearCita.xhtml">Formulario de Registro Tutorias</a></li>
-						</ul>
-						
-						<h3>Logout</h3>
-						<ul>
-						   <li><a href="logAdmin.xhtml">Cerrar Sesión</a></li>
-						</ul>
-					
-					<!-- End Sidebar -->				
-					</div>
 					
 
-			 <div id="content" class="round">
+			 
 				<h1>Listado de Precios</h1>
 				<h:form>
 				<h:outputText value="No existe registros guardados" 
 				rendered="#{empty precioControlador.listaprecios}" />
 				
 				<h:dataTable value="#{precioControlador.listaprecios}" var="precios" 
-				rendered="#{not empty precioControlador.listaprecios}">
+				rendered="#{not empty precioControlador.listaprecios}" styleClass="table table-bordered" style="border: solid 2px #003876; height: 140px; width: 880px">
 				<h:column>
 				<f:facet name="header">Codigo</f:facet>
 				#{precios.codigo}
@@ -94,16 +58,18 @@
 				</h:column>
 				<h:column>
 				<f:facet name="header">Editar</f:facet>
-				<h:commandButton action="#{precioControlador.loadDatosEditar(precios.codigo)}" value="Editar" />
+				<h:commandButton action="#{precioControlador.loadDatosEditar(precios.codigo)}" value="Editar" class="btn btn-primary"/>
 				</h:column>
 				<h:column>
 				<f:facet name="header">Eliminar</f:facet>
-				<h:commandButton action="#{precioControlador.eliminarPrecios(precios.codigo)}" value="Eliminar" />
+				<h:commandButton action="#{precioControlador.eliminarPrecios(precios.codigo)}" value="Eliminar" class="btn btn-primary"/>
 				</h:column>
 				</h:dataTable>
-				<h:commandButton action="GuardarPrecio" value="Crear precio nuevo" />
+				<center>
+				<h:commandButton action="#{precioControlador.nuevo()}" value="Crear precio nuevo" class="btn btn-primary"/>
+				</center>
 				</h:form>
-			 </div>
+			 
 			 <div style="clear: both"></div>
 		</div>
 	</div>

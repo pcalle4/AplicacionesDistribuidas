@@ -15,11 +15,11 @@ import interciclo.modulos.LugarNivelacion;
 @SessionScoped
 public class LugarNivelControlador {
 	
-	private LugarNivelacion lugnive;
+	
 	@Inject
 	private LugaNiveDAO lgdao;
 	private List<LugarNivelacion> listalugares;
-
+    private LugarNivelacion lugnive= null;
 	public List<LugarNivelacion> getListalugares() {
 		return listalugares;
 	}
@@ -82,12 +82,6 @@ public class LugarNivelControlador {
 	}
 	
 	
-	public LugaNiveDAO getLgdao() {
-		return lgdao;
-	}
 
-	public void setLgdao(LugaNiveDAO lgdao) {
-		this.lgdao = lgdao;
-	}
 }
 

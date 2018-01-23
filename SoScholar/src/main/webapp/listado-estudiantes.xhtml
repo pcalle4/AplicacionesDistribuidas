@@ -33,81 +33,58 @@
 		<div id="splash">
 					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
 		</div>
-		 <div id="wrapper2" class="round">
-		 <div id="sidebar" class="round">
-					<h3>Registro de Estudiantes</h3>
-						<ul>
-						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
-						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
-						</ul>				
-						
-						<h3>Registro de Tutores</h3>
-						<ul>
-						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
-						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-
-						
-							<h3>Registro de Lugares de Estudio</h3>
-						<ul>
-						   <li><a href="GuardarLugar.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Registro de Precios de Tutorias</h3>
-						<ul>
-						   <li><a href="GuardarPrecio.xhtml">Formulario de Registro</a></li>
-						   <li><a href="ListadoPrecio.xhtml">Editar o Borrar Registro</a></li>
-						</ul>
-						<h3>Sesiones de Estudio</h3>
-						<ul>
-						    <li><a href="crearCita.xhtml">Formulario de Registro Tutorias</a></li>
-						</ul>
-						
-					
-					<h3>Logout</h3>
-						<ul>
-						   <li><a href="logAdmin.xhtml">Cerrar Sesión</a></li>
-						</ul>
-					<!-- End Sidebar -->				
-					</div>
-				 <div id="content" class="round">
+		 <div align="center" id="wrapper2" class="round">
+		 
+				 
 <h1>Listado Estudiantes</h1>
 			<h:form>
 			<h:outputText value="No existen registros guardados" 
 			rendered="#{empty estudianteControlador.estudiantes}"/>
 			
 			<h:dataTable value="#{estudianteControlador.estudiantes}" var="estudiante"
-			rendered="#{not empty estudianteControlador.estudiantes}" styleClass="table table-bordered">
+			rendered="#{not empty estudianteControlador.estudiantes}" styleClass="table table-bordered" style="border: solid 2px #003876; height: 140px; width: 880px">
 			<h:column>
 				<f:facet name="header">Id</f:facet>
 				#{estudiante.est_id}
-				<f:facet name="header">Nombre</f:facet>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombre/</f:facet>
 				#{estudiante.est_nombre}
+			</h:column>
+			<h:column>
 				<f:facet name="header">Apellido</f:facet>
 				#{estudiante.est_apellido}
+		    </h:column>
+		    <h:column>
 				<f:facet name="header">CI</f:facet>
 				#{estudiante.est_cedula}
+			</h:column>
+			<h:column>
 				<f:facet name="header">Telefono</f:facet>
 				#{estudiante.est_telefono}
+			</h:column>
+			<h:column>
 				<f:facet name="header">Email</f:facet>
 				#{estudiante.est_mail}
+			</h:column>
+			<h:column>
 				<f:facet name="header">Password</f:facet>
 				#{estudiante.est_contrasena}
-				
-				<h:column>
-				<f:facet name="header">Acciones</f:facet>
-				<h:commandButton action="#{estudianteControlador.loadDatosEditar(estudiante.est_id)}" value="Editar" />
-				</h:column>
-				
-				<h:column>
-				<f:facet name="header">Acciones</f:facet>
-				<h:commandButton action="#{estudianteControlador.borrarEstudiante(estudiante.est_id)}" value="Borrar" />
-				</h:column>
 			</h:column>
+				<h:column>
+				<f:facet name="header">Acciones</f:facet>
+				<h:commandButton action="#{estudianteControlador.loadDatosEditar(estudiante.est_id)}" value="Editar" class="btn btn-primary" />
+				</h:column>
+				
+				<h:column>
+				<f:facet name="header">Acciones</f:facet>
+				<h:commandButton action="#{estudianteControlador.borrarEstudiante(estudiante.est_id)}" value="Borrar" class="btn btn-primary" />
+				</h:column>
+			
 			</h:dataTable>
-			<h:commandButton action="#{estudianteControlador.nuevo()}" value="Crear Nuevo Estudiante" />
+			<h:commandButton action="#{estudianteControlador.nuevo()}" value="Crear Nuevo Estudiante" class="btn btn-primary" />
 			</h:form>
-			</div>
+			
 			<div style="clear: both"></div>
 	</div>
 	</div>

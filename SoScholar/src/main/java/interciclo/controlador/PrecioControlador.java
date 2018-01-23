@@ -5,13 +5,16 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
 import interciclo.datos.PrecioDAO;
+import interciclo.modulos.LugarNivelacion;
 import interciclo.modulos.Precios;
 //import interciclo.modulos.Soli_Cita;
 
 @ManagedBean
+@SessionScoped
 public class PrecioControlador {
 
 	@Inject
@@ -70,5 +73,8 @@ public class PrecioControlador {
 		//precio.addSoliCita(new Soli_Cita());//delete
 		return null;
 	}
-	
+	public String nuevo() {
+		precio=new Precios();
+		return "GuardarPrecio";
+	}
 }
