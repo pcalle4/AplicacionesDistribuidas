@@ -102,6 +102,67 @@ public int getId() {
 public void setId(int id) {
 	this.id = id;
 }
+public Tutor getTutorActual() {
+	return tutorActual;
+}
+public void setTutorActual(Tutor tutorActual) {
+	this.tutorActual = tutorActual;
+}
+public String getUsuarioAdmin() {
+	return usuarioAdmin;
+}
+public void setUsuarioAdmin(String usuarioAdmin) {
+	this.usuarioAdmin = usuarioAdmin;
+}
+public String getClaveAdmin() {
+	return claveAdmin;
+}
+public void setClaveAdmin(String claveAdmin) {
+	this.claveAdmin = claveAdmin;
+}
+public List<Tutor> getLtsBusquedatutores() {
+	return ltsBusquedatutores;
+}
+public void setLtsBusquedatutores(List<Tutor> ltsBusquedatutores) {
+	this.ltsBusquedatutores = ltsBusquedatutores;
+}
+public String getArea() {
+	return area;
+}
+public void setArea(String area) {
+	this.area = area;
+}
+public String getPasswordNuevo() {
+	return passwordNuevo;
+}
+public void setPasswordNuevo(String passwordNuevo) {
+	this.passwordNuevo = passwordNuevo;
+}
+public String getPasswordNuevo2() {
+	return passwordNuevo2;
+}
+public void setPasswordNuevo2(String passwordNuevo2) {
+	this.passwordNuevo2 = passwordNuevo2;
+}
+public String getCorreoRecuperar() {
+	return correoRecuperar;
+}
+public void setCorreoRecuperar(String correoRecuperar) {
+	this.correoRecuperar = correoRecuperar;
+}
+public String getUsuarioActual() {
+	return usuarioActual;
+}
+public void setUsuarioActual(String usuarioActual) {
+	this.usuarioActual = usuarioActual;
+}
+public String getPasswordActual() {
+	return passwordActual;
+}
+public void setPasswordActual(String passwordActual) {
+	this.passwordActual = passwordActual;
+}
+
 
 public String doRead(){
 	Tutor orden = tdao.read(this.id);
@@ -170,9 +231,9 @@ public void setImpri(String impri) {
 			}
 		}
 		if(encontrado){
-			return "listado-especialidades";
+			return "logtut";
 		}else{
-			return "fallo";
+			return "fallo1";
 		}
 	}
 	
@@ -208,11 +269,12 @@ public void setImpri(String impri) {
 	public String recuperar(){
 		List<Tutor> usuarios = this.getTutores1();
 		boolean encontrado = false;
-		
+	System.out.println(correoRecuperar);
 		for(int i=0;i<usuarios.size();i++){
 			if(usuarios.get(i).getTut_mail().equals(correoRecuperar)){
 				encontrado = true;
-				tutorActual = usuarios.get(i);
+				tutorActual=usuarios.get(i);
+				tutorActual = tdao.read(usuarios.get(i).getTut_id());
 			}
 		}
 		
@@ -242,67 +304,7 @@ public void setImpri(String impri) {
 		return cadena;
 	}
 	
-	public Tutor getTutorActual() {
-		return tutorActual;
-	}
-	public void setTutorActual(Tutor tutorActual) {
-		this.tutorActual = tutorActual;
-	}
-	public String getUsuarioAdmin() {
-		return usuarioAdmin;
-	}
-	public void setUsuarioAdmin(String usuarioAdmin) {
-		this.usuarioAdmin = usuarioAdmin;
-	}
-	public String getClaveAdmin() {
-		return claveAdmin;
-	}
-	public void setClaveAdmin(String claveAdmin) {
-		this.claveAdmin = claveAdmin;
-	}
-	public List<Tutor> getLtsBusquedatutores() {
-		return ltsBusquedatutores;
-	}
-	public void setLtsBusquedatutores(List<Tutor> ltsBusquedatutores) {
-		this.ltsBusquedatutores = ltsBusquedatutores;
-	}
-	public String getArea() {
-		return area;
-	}
-	public void setArea(String area) {
-		this.area = area;
-	}
-	public String getPasswordNuevo() {
-		return passwordNuevo;
-	}
-	public void setPasswordNuevo(String passwordNuevo) {
-		this.passwordNuevo = passwordNuevo;
-	}
-	public String getPasswordNuevo2() {
-		return passwordNuevo2;
-	}
-	public void setPasswordNuevo2(String passwordNuevo2) {
-		this.passwordNuevo2 = passwordNuevo2;
-	}
-	public String getCorreoRecuperar() {
-		return correoRecuperar;
-	}
-	public void setCorreoRecuperar(String correoRecuperar) {
-		this.correoRecuperar = correoRecuperar;
-	}
-	public String getUsuarioActual() {
-		return usuarioActual;
-	}
-	public void setUsuarioActual(String usuarioActual) {
-		this.usuarioActual = usuarioActual;
-	}
-	public String getPasswordActual() {
-		return passwordActual;
-	}
-	public void setPasswordActual(String passwordActual) {
-		this.passwordActual = passwordActual;
-	}
-   
+	
 	
 
 	
