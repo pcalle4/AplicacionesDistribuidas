@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+   <head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="resources/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+
+	<body> 
+	<div id="wrapper">
+	<div id="logo">
+				<h1>S.O.S<span>cholar</span></h1>
+	</div>
+	 <div id="page" class="round">
+	  	<div id="menu" class="round">
+					<ul>
+						<li><a href="homepage.xhtml" title="" class="round ">Homepage</a></li>
+						<li><a href="#" title="" class="round">Servicios</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="#" title="" class="round">Acerca de</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="#" title="" class="round">Login</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="#" title="" class="round">Contáctanos</a></li>
+					</ul>	
+		</div>
+		<div id="splash">
+					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+		</div>
+		<div id="wrapper2" class="round">
+		 <div id="sidebar" class="round">
+					
+				<h3>Registro de Estudiantes</h3>
+						<ul>
+						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
+						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
+						</ul>				
+						
+						<h3>Registro de Tutores</h3>
+						<ul>
+						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
+						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
+
+						<h3>Registro de Lugares de Estudio</h3>
+						<ul>
+						   <li><a href="GuardarLugar.xhtml">Formulario de Registro</a></li>
+						   <li><a href="ListadoLugares.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
+						<h3>Registro de Precios de Tutorias</h3>
+						<ul>
+						   <li><a href="GuardarPrecio.xhtml">Formulario de Registro</a></li>
+						   <li><a href="ListadoPrecio.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
+						<h3>Sesiones de Estudio</h3>
+						<ul>
+						    <li><a href="crearCita.xhtml">Formulario de Registro Tutorias</a></li>
+						</ul>
+						
+						<h3>Logout</h3>
+						<ul>
+						   <li><a href="logAdmin.xhtml">Cerrar Sesión</a></li>
+						</ul>
+					
+					
+					<!-- End Sidebar -->				
+					</div>
+		<div id="content" class="round">
+  		<h:form>
+  		<h3>Ingrese el area academica para localizar al tutor que le puede asesorar</h3>
+  			<h:inputText value="#{tutorControlador.area}" />
+  			<h:commandButton action="#{tutorControlador.buscarTutor()}" value="Buscar" styleClass="btn btn-primary"/>
+  		
+  		 
+  		<h:dataTable value="#{tutorControlador.ltsBusquedatutores}" var="ltstutor">
+        
+    			<h:column>
+    				<!-- column header -->
+    				<f:facet name="header">Nombre---</f:facet>
+    				<!-- row record -->
+    				#{ltstutor.tut_nombre}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">Apellido---</f:facet>
+    				#{ltstutor.tut_apellido}
+    			</h:column>
+
+    			<h:column>
+    				<f:facet name="header">Area Academica</f:facet>
+    				#{ltstutor.tut_area}
+    			</h:column>
+
+    			<h:column>
+    				<h:commandButton action="#{tutorControlador.gestionarEstudiantes(ltstutor)}" value="Seleccionar" styleClass="btn btn-primary"/>
+    			</h:column>
+
+    		</h:dataTable>
+    		</h:form>
+    		</div>
+    		<div style="clear: both"></div>
+    </div>
+    </div>
+     </div>
+	</body>
+
+
+</html>

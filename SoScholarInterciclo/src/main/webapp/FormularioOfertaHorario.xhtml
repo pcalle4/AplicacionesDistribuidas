@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+   <h:head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="resources/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	</h:head>
+<h:body> 
+ <div id="wrapper">
+           <div id="logo">
+				<h1>S.O.S<span>cholar</span></h1>
+				
+			</div>
+		<div id="page" class="round">
+			<div id="menu" class="round">
+					<ul>
+					    <li><a href="#" title="" class="round">       </a></li>
+						<li><a href="homepage.xhtml" title="" class="round ">Homepage</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="registros.xhtml" title="" class="round">Servicios</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="acercade.xhtml" title="" class="round">Acerca de</a></li>
+						<li><a href="#" title="" class="round">       </a></li>
+						<li><a href="contactanos.xhtml" title="" class="round">Contáctanos</a></li>
+					</ul>
+		</div>
+		<div id="splash">
+					<img src="images/libros.jpg" alt="" width="960" height="200" class="round" />
+		</div>
+		 <div id="wrapper2" class="round">
+		 <div id="sidebar" class="round">
+					<h3>Registro de Estudiantes</h3>
+						<ul>
+						   <li><a href="crearEstudiante.xhtml">Formulario de Registro</a></li>
+						    <li><a href="listado-estudiantes.xhtml">Editar o Borrar Registro</a></li>
+						</ul>				
+						
+						<h3>Registro de Tutores</h3>
+						<ul>
+						   <li><a href="crearTutor.xhtml">Formulario de Registro</a></li>
+						   <li><a href="listado-tutores.xhtml">Editar o Borrar Registro</a></li>
+						</ul>
+
+						<h3>Sesiones de Estudio</h3>
+						<ul>
+						   <li><a href="listados.xhtml">Listado General</a></li>
+						    <li><a href="FormularioOfertaHorario.xhtml">Formulario de Registro Tutorias</a></li>
+						</ul>
+					<h3>Logout</h3>
+						<ul>
+						   <li><a href="logAdmin.xhtml">Cerrar Sesión</a></li>
+						</ul>
+					<!-- End Sidebar -->				
+					</div>
+				 <div id="content" class="round">
+<h1>Listado Tutores disponibles</h1>
+			<h:form id="form">
+			<h:outputText value="No existen registros guardados" 
+			rendered="#{empty ofertaHorarioContolador.tutorDAO.listadoTutor()}"/>
+			
+			
+			
+			<h:dataTable value="#{ofertaHorarioContolador.tutorDAO.listadoTutor()}" var="tutor"
+			rendered="#{not empty ofertaHorarioContolador.tutorDAO.listadoTutor()}" styleClass="table table-bordered">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+					#{tutor.tut_id}
+					<f:facet name="header">Nombre</f:facet>
+					#{tutor.tut_nombre}
+					<f:facet name="header">Apellido</f:facet>
+					#{tutor.tut_apellido}
+					<f:facet name="header">CI</f:facet>
+					#{tutor.tut_cedula}
+					<f:facet name="header">Telefono</f:facet>
+					#{tutor.tut_telefono}
+					<f:facet name="header">Email</f:facet>
+					#{tutor.tut_mail}
+					<f:facet name="header">Password</f:facet>
+					#{tutor.tut_contrasena}
+				
+				<f:facet name="header">Seleccionar</f:facet>
+				<h:commandButton id="select" value="Seleccionar" action="#{ofertaHorarioContolador.seleccionaTutor(tutor.tut_id)}">
+					<f:ajax render="panel1" />
+				</h:commandButton>
+				
+			</h:column>
+				<h:panelGroup id="panel1">
+			
+			<h3 id="selectTutor">Tutor: #{ofertaHorarioContolador.tutor.tut_apellido}, #{ofertaHorarioContolador.tutor.tut_nombre}</h3>
+
+			</h:panelGroup>
+			</h:dataTable>
+			
+		
+			
+			<h:outputText value="No existen registros guardados" 
+			rendered="#{not empty ofertaHorarioContolador.academicasDAO.listadoAcademicas()}"/>
+			
+			<h:dataTable value="#{ofertaHorarioContolador.academicasDAO.listadoAcademicas()}" var="academica"
+			rendered="#{not empty ofertaHorarioContolador.academicasDAO.listadoAcademicas()}" styleClass="table table-bordered">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+					#{academica.are_id}
+					<f:facet name="header">Descripcion</f:facet>
+					#{academica.are_nombre}
+				<f:facet name="header">Seleccionar</f:facet>
+				<h:commandButton  value="Agregar" action="#{ofertaHorarioContolador.agregarAcademica(academica.are_id)}">
+				<f:ajax render="table" />
+				</h:commandButton>
+			</h:column>
+			</h:dataTable>
+			
+			
+			<h:panelGrid>
+			<h:outputLabel value="Academica:" for="academica"/>
+			<h:inputText id="academica" value="#{ofertaHorarioContolador.academica.are_nombre}" />
+			<h:commandButton action="#{ofertaHorarioContolador.guardarAcademico()}" value="Crear" />
+			</h:panelGrid>
+			
+			<h:outputText value="No existen registros guardados" 
+			rendered="#{empty ofertaHorarioContolador.academicasAgregadas}"/>
+			
+			<h:dataTable id="table" value="#{ofertaHorarioContolador.academicasAgregadas}" var="academica"
+			rendered="#{not empty ofertaHorarioContolador.academicasAgregadas}" styleClass="table table-bordered">
+			
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+					#{academica.are_id}
+					<f:facet name="header">Descripcion</f:facet>
+					#{academica.are_nombre}
+				<f:facet name="header">Seleccionar</f:facet>
+				<h:commandButton value="Agregar" />
+			</h:column>
+			</h:dataTable>
+			
+			<h:panelGrid>
+			<h:outputLabel value="Horario:" for="horario"/>
+			<h:inputText id="horario" value="#{ofertaHorarioContolador.ofertaHorario.horario}" />
+			<h:outputLabel value="Precio:" for="precio"/>
+			<h:inputText id="precio" value="#{ofertaHorarioContolador.ofertaHorario.precio}" />
+			
+			</h:panelGrid>
+			
+			<h:commandButton action="#{ofertaHorarioContolador.guardarOfertaOHorario()}" value="Guardar">
+			<f:ajax render="form" execute="@form" />
+			</h:commandButton>
+			</h:form>
+			</div>
+			<div style="clear: both"></div>
+	</div>
+	</div>
+</div>
+</h:body> 
+</html>

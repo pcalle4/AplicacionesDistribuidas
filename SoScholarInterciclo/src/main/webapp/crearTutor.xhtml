@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+    <head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="resources/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	</head> 
+<h:head></h:head> 
+		<body> 
+		<div id="wrapper">
+		<div id="logo">
+				<h1>S.O.S<span>cholar</span></h1>
+			
+		</div>
+	<div id="page" class="round">
+		<div id="menu" class="round">
+				<ul>
+					  <li><a href="homepage.xhtml" title="" class="round">Homepage</a></li>
+					    <li><a href="servicios.xhtml" title="" class="round">Servicios</a></li>
+						<li><a href="acercade.xhtml" title="" class="round ">Acerca de</a></li>
+						<li><a href="loginTutor.xhtml" title="" class="round"> Login</a></li>
+						<li><a href="contactanos.xhtml" title="" class="round">Contáctanos</a></li>
+						<li><a href="login.xhtml" title="" class="round">Logout</a></li>
+					</ul>	
+		</div>
+		<div id="splash">
+					<img src="images/libros.jpg" alt="" width="940" height="200" class="round" />
+		</div>
+	<div id="wrapper2" class="round">
+	
+	
+		<h1>Registrar  Tutor</h1>
+		<h:form>
+		<h:panelGrid>
+			
+			<h:outputLabel value="Nombre:" for="nombre"/>
+			<h:inputText id="nombre" value="#{tutorControlador.tutor.tut_nombre}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
+			<h:message for="nombre" errorClass="invalid"/>
+		   
+			<h:outputLabel value="Apellido:" for="apellido"/>
+			<h:inputText id="apellido" value="#{tutorControlador.tutor.tut_apellido}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
+			<h:message for="apellido" errorClass="invalid"/>
+			
+			<h:outputLabel value="CI:" for="cedula"/>
+			<h:inputText id="cedula" value="#{tutorControlador.tutor.tut_cedula}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" >
+			<f:validator validatorId="interciclo.validador.validadorCedula" />
+			</h:inputText>
+			<h:message for="cedula" errorClass="invalid"/>
+			
+			<h:outputLabel value="Telefono:" for="telefono"/>
+			<h:inputText id="telefono" value="#{tutorControlador.tutor.tut_telefono}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
+			<h:message for="telefono" errorClass="invalid"/>
+		
+			<h:outputLabel value="Email:" for="mail"/>
+			<h:inputText id="mail" value="#{tutorControlador.tutor.tut_mail}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
+			<h:message for="mail" errorClass="invalid"/>
+		
+			<h:outputLabel value="Password:" for="contrasena"/>
+			<h:inputText id="contrasena" value="#{tutorControlador.tutor.tut_contrasena}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control"/>
+			<h:message for="contrasena" errorClass="invalid"/>
+			
+			<h:outputLabel value="Area Academica:" for="area"/>
+			<h:inputText id="area" value="#{tutorControlador.tutor.tut_area}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
+			<h:message for="area" errorClass="invalid"/>
+			
+			<h:outputLabel value="Especialidad:" for="especialidad"/>
+			<h:inputText id="especialidad" value="#{tutorControlador.tutor.tut_especialidad}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
+			<h:message for="especialidad" errorClass="invalid"/>
+			
+			<h:outputLabel value="Nivel:" for="nivel"/>
+			<h:inputText id="nivel" value="#{tutorControlador.tutor.tut_anivel}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
+			<h:message for="nivel" errorClass="invalid"/>
+			
+			<h:outputLabel value="Precios por hora:" for="precios"/>
+			<h:inputText id="precios" value="#{tutorControlador.tutor.tut_precio}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
+			<h:message for="precios" errorClass="invalid"/>
+		 
+			
+		</h:panelGrid>
+		
+	    <h:commandButton action="#{tutorControlador.addHorarios()}" value="+ horarios" />
+		<h:dataTable value="#{tutorControlador.tutor.horarios}" var="horarios" >
+		<h:column>
+		<f:facet name="header">Horario</f:facet>
+		<h:inputText value="#{horarios.horario}" style="border: solid 2px #003876; height: 35px; width: 900px" class="form-control" />
+		</h:column>
+		
+		</h:dataTable>
+		
+		
+		<h:commandButton action="#{tutorControlador.guardar()}" value="Guardar" styleClass="btn btn-primary"  />
+		<h:commandButton immediate="true" action="regtut" value="Cancelar" styleClass="btn btn-primary" />
+		</h:form>
+	
+	<div style="clear: both"></div>
+	 </div>
+	</div>
+	</div>
+		</body> 
+</html>

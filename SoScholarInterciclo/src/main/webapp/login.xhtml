@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head>
+<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="resources/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+</h:head> 
+<h:body> 
+<div id="wrapper" align="left">
+<div id="logo">
+<h1>S.O.S<span>cholar</span></h1>
+						<p>Prepárate para alcanzar el éxito.</p>
+</div>
+
+  <div id="page" class="round" align="center">
+  <div id="splash">
+					<img src="images/libros.jpg" alt="" width="940" height="200" class="round" />
+	</div>
+   <div id="wrapper2" class="round" align="center">
+				
+	
+	
+<h:form>
+
+			<div class="login" align="center">	
+			<div class="login-screen" align="center">	
+			<div class="app-title" align="center">
+				<center><h1>Login</h1></center>
+	           </div>
+	           <div class="login-form" align="center">
+	           <div class="control-group" align="center" >
+		
+					<br/>
+					<center><p><i>Usuario : <h:inputText p:placeholder="Usuario del Admin" value="#{tutorControlador.usuarioAdmin}" style="border: solid 2px #003876" /></i></p></center>
+					<center><p><i>Password:  <h:inputSecret p:placeholder="Password del Admin" value="#{tutorControlador.claveAdmin}" style="border: solid 2px #003876"/></i></p></center>						
+					<br/>
+					<center>
+						<h:commandButton value="INICIAR" action="#{tutorControlador.logearAdmin()}" class="btn btn-primary" style="width:80px" styleClass="btn btn-primary"/>
+						
+					</center>
+					</div>
+					</div>
+					<br/>
+				</div>	
+				</div>	
+				</h:form>
+				
+	
+	<div style="clear: both" align="center"></div>
+	</div>
+</div>
+</div>
+
+</h:body> 
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+    <head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link href="default.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="resources/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	</head>
+<h:head></h:head> 
+				<body> 
+	<div id="wrapper">
+	 <div id="logo">
+				<h1>S.O.S<span>cholar</span></h1>
+
+	 </div>
+	<div id="page" class="round" width="980">
+	 <div id="menu" class="round" width="980">
+				<ul>
+					    <li><a href="homepage.xhtml" title="" class="round">Homepage</a></li>
+					    <li><a href="servicios.xhtml" title="" class="round">Servicios</a></li>
+						<li><a href="acercade.xhtml" title="" class="round ">Acerca de</a></li>
+						<li><a href="loginTutor.xhtml" title="" class="round"> Login</a></li>
+						<li><a href="contactanos.xhtml" title="" class="round">Contáctanos</a></li>
+						<li><a href="login.xhtml" title="" class="round">Logout</a></li>
+					</ul>	
+		</div>
+		<div id="splash" >
+					<img src="images/libros.jpg" alt="" width="980" height="200" class="round" />
+		</div>
+		 <div id="wrapper2" class="round" >
+		  
+			<center>
+				<h1>Listado Tutores</h1>
+				</center>
+				<h:form>
+				<h:outputText value="No existen registros guardados" 
+				rendered="#{empty tutorControlador.tutores}"/>
+				
+				<h:dataTable value="#{tutorControlador.tutores}" var="tutor"
+				rendered="#{not empty tutorControlador.tutores}" styleClass="table table-bordered" style="border: solid 2px #003876; height: 140px; width: 880px">
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+					#{tutor.tut_id}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					#{tutor.tut_nombre}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Apellido</f:facet>
+					#{tutor.tut_apellido}
+				</h:column>
+				<h:column>
+					<f:facet name="header">CI</f:facet>
+					#{tutor.tut_cedula}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Telefono</f:facet>
+					#{tutor.tut_telefono}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+					#{tutor.tut_mail}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Password</f:facet>
+					#{tutor.tut_contrasena}
+			    </h:column>
+			    <h:column>
+					<f:facet name="header">Area Academica</f:facet>
+					#{tutor.tut_area}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Especialidad</f:facet>
+					#{tutor.tut_especialidad}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Precio</f:facet>
+					#{tutor.tut_precio}
+				</h:column>
+					<h:column>
+					<f:facet name="header">Acciones</f:facet>
+					<h:commandButton action="#{tutorControlador.loadDatosEditar(tutor.tut_id)}" value="Editar" class="btn btn-primary"/>
+					</h:column>
+					
+					<h:column>
+					<f:facet name="header">Acciones</f:facet>
+					<h:commandButton action="#{tutorControlador.borrarTutor(tutor.tut_id)}" value="Borrar" class="btn btn-primary"/>
+					</h:column>
+				
+				</h:dataTable>
+				<center>
+				<h:commandButton action="#{tutorControlador.nuevo()}" value="Crear Nuevo Tutor" class="btn btn-primary"/>
+				</center>
+				</h:form>
+			
+		<div style="clear: both"></div>
+	 </div>
+	</div>
+ </div>
+				</body> 
+	
+</html>

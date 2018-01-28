@@ -41,7 +41,6 @@ public class TutorControlador {
 	private TutorDAO tdao;
 	private List<Tutor>tutores;
 	
-	
 	private List<Tutor>ltsBusquedatutores = new ArrayList<>();
 	private String area="";
 	public List<Tutor> getTutores() {
@@ -220,7 +219,6 @@ public void setImpri(String impri) {
         }
 	}
 	public String logear(){
-
 		List<Tutor> usuarios = this.getTutores1();
 		
 		boolean encontrado = false;
@@ -232,7 +230,7 @@ public void setImpri(String impri) {
 				 tutorActual = tdao.read(usuarios.get(i).getTut_id());
 			}
 		}
-		if(encontrado = true){
+		if(encontrado){
 			return "logtut";
 		}else{
 			return "fallo1";
@@ -281,8 +279,6 @@ public void setImpri(String impri) {
 		}
 		
 		if(encontrado){
-			
-			
 			String generated = generarPasswordAleatorio();
 			tutorActual.getLogIn().setCont(generated);
 			tdao.actualizarPassword(tutorActual);
