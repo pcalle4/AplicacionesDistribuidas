@@ -223,6 +223,81 @@ public class TutorServices {
 		return resp;
 	}	
 	
+	@GET
+	@Path("/listacom")
+	@Produces("application/json")
+	public ArrayList<Calificacion> listComentario(@QueryParam("id") int id) {
+		Tutor t = tdao.leer(id);
+		ArrayList<Calificacion> sc=(ArrayList<Calificacion>) cdao.listadoComentarios();
+		ArrayList<Calificacion> sc2= new ArrayList<Calificacion>();//) a.getEmpresas();//empresaDao.listadoempresas();
+		for (Calificacion s:sc) {
+			if (s.getTutor().getTut_id()==id) {
+				//s.getDescripcion();
+				sc2.add(s);
+			}
+		}
+		return sc2;
+	}
 	
-
+	@GET
+	@Path("/listadocal")
+	@Produces("application/json")
+	public List<Calificacion> listadoCali() {
+		List<Calificacion> tut = cdao.listadoCalificaciones();
+		return tut;
+	}
+	
+/*	@GET
+	@Path("/listatutorid")
+	@Produces("application/json")
+	public List<Calificacion> listarHorarios(@QueryParam("id") int id){
+		Tutor tut = tdao.leer(id);
+		System.out.println();
+		ArrayList<Calificacion> horarios = new ArrayList<Calificacion>();
+		//tut.getHorarios();
+		for(Calificacion h: tut.getCalificaciones()) {
+			horarios.add(h);
+		}
+		return horarios;
+		
+	}
+*/
+	@GET
+	@Path("/listatutorid")
+	@Produces("application/json")
+	public List<Horarios> listarHorarios(@QueryParam("id") int id){
+		Tutor tut = tdao.leer(id);
+		System.out.println();
+		ArrayList<Horarios> horarios = new ArrayList<Horarios>();
+		//tut.getHorarios();
+		for(Horarios h: tut.getHorarios()) {
+			horarios.add(h);
+		}
+		return horarios;
+		
+	}
+	
+	@GET
+	@Path("/comentarios")
+	@Produces("application/json")
+	public List<Calificacion> getComentarios(@QueryParam("id") int id) {
+		List<Calificacion> res= cdao.getComentarios(id);
+			ArrayList<Calificacion>  cal = new ArrayList<Calificacion>();
+			for(Calificacion c: res) {
+				c.setEstudiante(null);
+				c.setTutor(null);
+				c.setSolicitudCita(null);	
+				cal.add(c);
+			}
+		 	 	return cal;
+	}
+	
+	@GET
+	@Path("/parche1")
+	@Produces("application/json")
+	public List<String> getComenta(@QueryParam("id") int id) {
+		List<String> res= cdao.getComenta(id);
+	
+		return res;
+	}
 }

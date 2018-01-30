@@ -218,13 +218,13 @@ public class EstudServer {
 	@Path("/newSolicitud")
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Respuesta saveUsuario(SolicitudCita solicitud, @QueryParam("id") int id) {
+	public Respuesta saveUsuario(SolicitudCita solicitud, @QueryParam("fecha") String fecha, @QueryParam("id") int id) {
 		Respuesta resp=new Respuesta();
 		Estudiante est=edao.leer(id);
 		
 		try {
-			
-			Date d=new Date("06/05/1994");
+			//"06/05/1994"
+			Date d=new Date(fecha);
 			solicitud.setFecha(d);
 			solicitud.setEstudiante(est);
 			scdao.Guardar(solicitud);
@@ -300,4 +300,5 @@ public class EstudServer {
 		
 		return cns;
 	}
+	
 }

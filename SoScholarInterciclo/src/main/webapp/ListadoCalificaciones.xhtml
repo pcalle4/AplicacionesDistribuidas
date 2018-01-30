@@ -21,10 +21,7 @@
 	  	<div id="menu" class="round">
 					<ul>
 					   <li><a href="homepage.xhtml" title="" class="round">Homepage</a></li>
-					    <li><a href="servicios.xhtml" title="" class="round">Servicios</a></li>
-						<li><a href="acercade.xhtml" title="" class="round ">Acerca de</a></li>
-						<li><a href="loginTutor.xhtml" title="" class="round"> Login</a></li>
-						<li><a href="contactanos.xhtml" title="" class="round">Contáctanos</a></li>
+
 						<li><a href="login.xhtml" title="" class="round">Logout</a></li>
 					</ul>	
 		</div>
@@ -63,8 +60,8 @@
 			<h:commandButton action="#{calificacionControlador.eliminarCalificacion(calificacion.codigo)}" value="Eliminar" class="btn btn-primary"  />
 			</h:column>
 			</h:dataTable>
-			<h:commandButton action="CalificarProfesores" value="Calificar nuevo profesor" class="btn btn-primary" />
-			<h:commandButton action="listadotut" value="Ver Tutores" class="btn btn-primary" />
+			
+			<h:commandButton action="listtutdisp" value="Ver Tutores" class="btn btn-primary" />
 			</h:form>
 	
 	 <div style="clear: both"></div>

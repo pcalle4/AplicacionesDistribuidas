@@ -86,4 +86,37 @@ public class CalificacionDAO {
 			
 		return lc;
 	}
+	public List<Calificacion> listadoComentarios(){
+		Query query = em.createQuery("SELECT esp_descripcion FROM Calificacion", Calificacion.class);
+		List<Calificacion> listado = query.getResultList();
+		return listado;
+	}
+	
+public List<Calificacion> getComentarios(int id) {
+		
+		
+		String sql = "SELECT c FROM Calificacion c WHERE c.tutor.id=:id";
+		Query query = em.createQuery(sql, Calificacion.class);
+		query.setParameter("id", id);
+		List<Calificacion> listado = query.getResultList();
+		
+		return listado;
+		
+}
+
+public List<String> getComenta(int id) {
+	
+	List<String> comentarios = new ArrayList<>();
+	String sql = "SELECT c FROM Calificacion c WHERE c.tutor.id=:id";
+	Query query = em.createQuery(sql, Calificacion.class);
+	query.setParameter("id", id);
+	List<Calificacion> listado = query.getResultList();
+	
+	for(int i=0;i<listado.size();i++) {
+		comentarios.add(listado.get(i).getDescripcion());
+	}
+	
+	return comentarios;
+
+}
 }
